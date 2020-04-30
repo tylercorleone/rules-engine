@@ -1,0 +1,28 @@
+#
+# The following rules are used to REMOVE permissions to operations, that is, if a rule
+# is created to bound the access to a certain operation it should not limit other operations.
+#
+name: default-rule
+description: by default all the operations are permitted
+condition: true
+result:
+  name: default
+  policies:
+    userProfile: [CREATE, READ, UPDATE, DELETE]
+    restrictedResource: [CREATE, READ, UPDATE, DELETE]
+---
+name: non-admin-users
+condition: not isAdmin
+result:
+  name: nonAdminUser
+  policies:
+    restrictedResource: []
+---
+name: expired-accounts
+condition: lastLoginInstant.isBefore(instant:now().minus(365, chronoUnit:valueOf("DAYS")))
+description: users that didn't log-in in the last 365 days
+result:
+  name: expiredAccount
+  policies:
+    userProfile: [READ]
+    restrictedResource: []

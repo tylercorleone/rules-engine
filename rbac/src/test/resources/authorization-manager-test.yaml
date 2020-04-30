@@ -1,0 +1,35 @@
+name: default-rule
+condition: number >= 0
+description: >-
+  The default-rule is used to enumerate all the available operations and their default permissions.
+  Usually have an always-true condition, but in this case we are using a particular condition
+  in order to test the 'missing default rule' exception.
+result:
+  name: defaultRule
+  policies:
+    operation_a: [READ, CREATE, UPDATE, DELETE]
+    operation_b: [READ, CREATE, UPDATE, DELETE]
+    operation_c: [READ, CREATE, UPDATE, DELETE]
+---
+name: non-negative-number
+condition: number >= 0
+result:
+  name: nonNegativeNumber
+  policies:
+    operation_b: [READ]
+---
+name: number-zero-rule
+condition: number == 0
+result:
+  name: numberZero
+  policies:
+    operation_c: [READ, CREATE, UPDATE]
+---
+name: positive-even-numbers-rule
+condition: number > 0 && number % 2 == 0
+result:
+  name: positiveEvenNumber
+  policies:
+    operation_a: [READ]
+    operation_b: [READ]
+    operation_c: [READ]

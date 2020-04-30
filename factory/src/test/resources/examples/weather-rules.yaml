@@ -1,0 +1,15 @@
+id: beachRule
+condition: temperature > 20 && !isRaining
+result: BEACH
+---
+id: mountainRule
+condition: temperature < 10 && !isRaining
+result: MOUNTAIN
+---
+id: partyRule
+condition: partyLocation != null
+action: return partyLocation # or just 'partyLocation'
+---
+id: defaultRule
+condition: true
+result: HOME

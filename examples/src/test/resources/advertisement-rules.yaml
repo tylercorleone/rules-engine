@@ -1,0 +1,18 @@
+name: birthdayRule
+condition: user.birthDate == localDate:withYear(user.birthDate.year)
+priority: 3
+action: adEngine:sendBirthdayEmail(adFacts)
+---
+name: sundayRule
+condition: localDate:getDayOfWeek() == dayOfWeek:of(7)
+priority: 2
+---
+name: promoDayRule
+condition: company.birthDate == localDate:withYear(company.birthDate.year)
+priority: 1
+action: adEngine:sendPromoMail(adFacts)
+---
+name: defaultRule
+condition: true
+priority: 0
+action: adEngine:sendDailyEmail(adFacts)

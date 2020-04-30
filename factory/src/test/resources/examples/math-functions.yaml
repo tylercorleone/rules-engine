@@ -1,0 +1,16 @@
+id: timesZero
+condition: true
+result: 0
+action: println("Any value times 0 is 0!")
+---
+id: identity
+condition: true
+action: x
+---
+id: square
+condition: true
+action: var square = x * x; return square
+---
+id: inverse
+condition: x != 0
+action: println("Im going to return the inverse of " + x + "!"); 1.0 / x

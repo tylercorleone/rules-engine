@@ -1,0 +1,27 @@
+name: eat-rule
+condition: energy < 0.1
+result:
+  action: EAT
+  calories: 500
+  earnMoney: false
+---
+name: run-rule
+condition: fat > 0.9
+result:
+  action: RUN
+  calories: -200
+  earnMoney: false
+---
+name: sleep-rule
+condition: energy < 0.1 && fat > 0.5
+result:
+  action: SLEEP
+  calories: -20
+  earnMoney: false
+---
+name: work-rule
+condition: energy > 0.75
+result:
+  action: WORK
+  calories: -200
+  earnMoney: true

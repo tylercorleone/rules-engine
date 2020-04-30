@@ -1,0 +1,23 @@
+id: rule1
+priority: 1
+condition:
+  stringField: string 1
+  integerField: 1
+action:
+  stringField: string 1
+  integerField: 1
+result:
+  stringField: string 1
+  integerField: 1
+---
+id: rule2
+priority: 2
+condition:
+  stringField: string 2
+  integerField: 2
+action:
+  stringField: string 2
+  integerField: 2
+result:
+  stringField: string 2
+  integerField: 2
